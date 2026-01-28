@@ -137,9 +137,13 @@ Visualizar modelos y respuestas
 ###Equipos
 
 GET    /equipos
+
 GET    /equipos/{id}
+
 POST   /equipos
+
 PUT    /equipos/{id}
+
 DELETE /equipos/{id}
 
 
@@ -147,20 +151,31 @@ DELETE /equipos/{id}
 ### Jugadores
 
 GET    /jugadores
+
 GET    /jugadores/{id}
+
 POST   /jugadores
+
 PUT    /jugadores/{id}
+
 DELETE /jugadores/{id}
+
 GET    /jugadores/paginados
+
 GET    /jugadores/paginados/{nombre}
+
 
 
 ### Entrenadores
 
 GET    /entrenadores
+
 GET    /entrenadores/{id}
+
 POST   /entrenadores
+
 PUT    /entrenadores/{id}
+
 DELETE /entrenadores/{id}
 
 
@@ -168,20 +183,30 @@ DELETE /entrenadores/{id}
 ### Torneos
 
 GET    /torneos
+
 GET    /torneos/{id}
+
 POST   /torneos
+
 PUT    /torneos/{id}
+
 DELETE /torneos/{id}
+
 GET    /torneos/paginados
 
 
 ### Partidos
 
 GET    /partidos
+
 GET    /partidos/{id}
+
 POST   /partidos
+
 PUT    /partidos/{id}
+
 DELETE /partidos/{id}
+
 GET    /partidos/paginados
 
 ---
