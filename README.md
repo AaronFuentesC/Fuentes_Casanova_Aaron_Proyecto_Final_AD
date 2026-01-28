@@ -217,17 +217,17 @@ GET    /partidos/paginados
 
 #### Torneos:
 
-LaLiga
+- LaLiga
 
-Premier League
+- Premier League
 
-Bundesliga
+- Bundesliga
 
-Serie A
+- Serie A
 
-Ligue 1
+- Ligue 1
 
-Champions League
+- Champions League
 
 #### Equipos reales
 
@@ -241,11 +241,11 @@ Champions League
 
 ### Las pruebas pueden realizarse mediante:
 
-Swagger UI
+- Swagger UI
 
-Postman
+- Postman
 
-cURL
+- cURL
 
 ---
 
