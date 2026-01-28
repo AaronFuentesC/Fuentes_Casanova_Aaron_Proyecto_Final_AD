@@ -213,9 +213,9 @@ GET    /partidos/paginados
 
 ## 🗃️ DataInitializer
 
-El proyecto incluye un DataInitializer que carga datos automáticamente:
+###El proyecto incluye un DataInitializer que carga datos automáticamente:
 
-Torneos:
+#### Torneos:
 
 LaLiga
 
@@ -229,17 +229,17 @@ Ligue 1
 
 Champions League
 
-Equipos reales
+#### Equipos reales
 
-Jugadores (incluyendo porteros)
+#### Jugadores (incluyendo porteros)
 
-Entrenadores
+#### Entrenadores
 
-Partidos reales entre equipos
+#### Partidos reales entre equipos
 
-Esto permite probar la API sin insertar datos manualmente.
+#### Esto permite probar la API sin insertar datos manualmente.
 
-Las pruebas pueden realizarse mediante:
+### Las pruebas pueden realizarse mediante:
 
 Swagger UI
 
