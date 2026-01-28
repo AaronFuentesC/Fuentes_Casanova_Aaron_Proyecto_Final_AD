@@ -112,7 +112,7 @@ mvn spring-boot:run
 
 ---
 
-📘 Documentación con Swagger
+### 📘 Documentación con Swagger
 
 La API está completamente documentada con Swagger/OpenAPI.
 
@@ -132,7 +132,7 @@ Visualizar modelos y respuestas
 
 ---
 
-🔗 Endpoints Principales
+### 🔗 Endpoints Principales
 Equipos
 
 GET /equipos
@@ -173,7 +173,7 @@ GET /partidos/paginados
 
 ---
 
-DataInitializer
+### 🗃️ DataInitializer
 
 El proyecto incluye un DataInitializer que carga datos automáticamente:
 
