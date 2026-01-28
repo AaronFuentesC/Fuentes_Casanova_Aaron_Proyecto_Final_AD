@@ -133,43 +133,56 @@ Visualizar modelos y respuestas
 ---
 
 ## 🔗 Endpoints Principales
-Equipos
 
-GET /equipos
+###Equipos
 
-GET /equipos/{id}
-
-POST /equipos
-
-PUT /equipos/{id}
-
+GET    /equipos
+GET    /equipos/{id}
+POST   /equipos
+PUT    /equipos/{id}
 DELETE /equipos/{id}
 
-Jugadores
 
-GET /jugadores
 
-GET /jugadores/paginados
+### Jugadores
 
-GET /jugadores/paginados/{nombre}
+GET    /jugadores
+GET    /jugadores/{id}
+POST   /jugadores
+PUT    /jugadores/{id}
+DELETE /jugadores/{id}
+GET    /jugadores/paginados
+GET    /jugadores/paginados/{nombre}
 
-Entrenadores
 
-GET /entrenadores
+### Entrenadores
 
-POST /entrenadores
+GET    /entrenadores
+GET    /entrenadores/{id}
+POST   /entrenadores
+PUT    /entrenadores/{id}
+DELETE /entrenadores/{id}
 
-Torneos
 
-GET /torneos
 
-GET /torneos/paginados
+### Torneos
 
-Partidos
+GET    /torneos
+GET    /torneos/{id}
+POST   /torneos
+PUT    /torneos/{id}
+DELETE /torneos/{id}
+GET    /torneos/paginados
 
-GET /partidos
 
-GET /partidos/paginados
+### Partidos
+
+GET    /partidos
+GET    /partidos/{id}
+POST   /partidos
+PUT    /partidos/{id}
+DELETE /partidos/{id}
+GET    /partidos/paginados
 
 ---
 
