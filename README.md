@@ -99,8 +99,11 @@ git clone https://github.com/AaronFuentesC/Fuentes_Casanova_Aaron_Proyecto_Final
 ```
 ### 2. Configuración de la base de datos
 spring.datasource.url=jdbc:mysql://localhost:3306/tu_basedatos
+
 spring.datasource.username=usuario
+
 spring.datasource.password=password
+
 spring.jpa.hibernate.ddl-auto=update
 
 ### 3. Ejecutar la aplicación
