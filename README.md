@@ -33,6 +33,7 @@ La API está documentada mediante **Swagger/OpenAPI**, permitiendo probar todos 
 ## 🏗️ Arquitectura del Proyecto
 
 El proyecto sigue una **arquitectura en capas**, separando responsabilidades:
+```
 
 src/main/java
 └── es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final
@@ -49,7 +50,7 @@ src/main/java
 ├── interfaz
 └── implementacion
 
-
+```
 ---
 
 ## 🧱 Modelo de Datos (JPA)
@@ -105,6 +106,9 @@ spring.jpa.hibernate.ddl-auto=update
 ### 3. Ejecutar la aplicación
 mvn spring-boot:run
 
+
+---
+
 📘 Documentación con Swagger
 
 La API está completamente documentada con Swagger/OpenAPI.
@@ -122,6 +126,8 @@ Ver todos los endpoints
 Probar peticiones GET, POST, PUT y DELETE
 
 Visualizar modelos y respuestas
+
+---
 
 🔗 Endpoints Principales
 Equipos
@@ -162,6 +168,7 @@ GET /partidos
 
 GET /partidos/paginados
 
+---
 
 DataInitializer
 
@@ -198,6 +205,8 @@ Swagger UI
 Postman
 
 cURL
+
+---
 
 👨‍💻 Autor
 
