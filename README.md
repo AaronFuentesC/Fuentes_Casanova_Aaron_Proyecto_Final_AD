@@ -213,7 +213,7 @@ GET    /partidos/paginados
 
 ## 🗃️ DataInitializer
 
-###El proyecto incluye un DataInitializer que carga datos automáticamente:
+### El proyecto incluye un DataInitializer que carga datos automáticamente:
 
 #### Torneos:
 
