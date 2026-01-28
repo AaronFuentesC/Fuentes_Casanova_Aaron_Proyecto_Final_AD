@@ -4,6 +4,7 @@ package es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.controller
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.request.EntrenadorRequest;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.EntrenadorResponse;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.implementacion.EntrenadorService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@Tag(name = "Entrenadores", description = "Gestión de entrenadores de equipos de fútbol")
 @RestController
 @RequiredArgsConstructor
 public class EntrenadorController {

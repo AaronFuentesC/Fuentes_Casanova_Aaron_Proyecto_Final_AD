@@ -2,14 +2,21 @@ package es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.controller
 
 
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.request.TorneoRequest;
+import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.PartidoResponse;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.TorneoResponse;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.implementacion.TorneoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@Tag(name = "Torneos", description = "Gestión de torneos en los que participan varios equipos de fútbol de diferentes países.")
 @RestController
 @RequiredArgsConstructor
 public class TorneoController {
@@ -43,5 +50,15 @@ public class TorneoController {
     public ResponseEntity<Void> eliminarTorneo(@PathVariable Long id) {
         torneoService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/torneos/paginados")
+    public ResponseEntity<Page<TorneoResponse>> listarTorneosPaginados(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<TorneoResponse> torneos = torneoService.findAll(pageable);
+        return ResponseEntity.ok(torneos);
     }
 }

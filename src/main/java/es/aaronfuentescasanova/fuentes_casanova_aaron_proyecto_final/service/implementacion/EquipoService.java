@@ -8,6 +8,7 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.interfaces.IEquipoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,9 +16,12 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class EquipoService implements IEquipoService {
     private final EquipoRepository equipoRepository;
     private final EquipoMapper equipoMapper;
+
+    @Transactional(readOnly = true)
     @Override
     public List<EquipoResponse> findAll() {
         return equipoRepository.findAll().stream()
@@ -25,10 +29,11 @@ public class EquipoService implements IEquipoService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     @Override
     public EquipoResponse findById(Long id) {
         Equipo equipo = equipoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Proyecto no encontrado con id: " + id));
+                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + id));
         return equipoMapper.toResponse(equipo);
     }
 
@@ -60,7 +65,7 @@ public class EquipoService implements IEquipoService {
     @Override
     public void delete(Long id) {
         if (!equipoRepository.existsById(id)) {
-            throw new RuntimeException("Libro no encontrado con id: " + id);
+            throw new RuntimeException("Equipo no encontrado con id: " + id);
         }
         equipoRepository.deleteById(id);
     }

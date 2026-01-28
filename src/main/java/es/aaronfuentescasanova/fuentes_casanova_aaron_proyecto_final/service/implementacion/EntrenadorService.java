@@ -10,16 +10,21 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.interfaces.IEntrenadorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class EntrenadorService implements IEntrenadorService {
     private final EntrenadorRepository entrenadorRepository;
     private final EntrenadorMapper entrenadorMapper;
     private final EquipoRepository equipoRepository;
+
+
+    @Transactional(readOnly=true)
     @Override
     public List<EntrenadorResponse> findAll() {
         return entrenadorRepository.findAll().stream()
@@ -27,10 +32,11 @@ public class EntrenadorService implements IEntrenadorService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly=true)
     @Override
     public EntrenadorResponse findById(Long id) {
         Entrenador entrenador = entrenadorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Proyecto no encontrado con id: " + id));
+                .orElseThrow(() -> new RuntimeException("Entrenador no encontrado con id: " + id));
         return entrenadorMapper.toResponse(entrenador);
     }
 
@@ -38,6 +44,10 @@ public class EntrenadorService implements IEntrenadorService {
     public EntrenadorResponse create(EntrenadorRequest request) {
         Equipo equipo = equipoRepository.findById(request.getId_equipo())
                 .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + request.getId_equipo()));
+        if (equipo.getEntrenador() != null) {
+            throw new RuntimeException("El equipo ya tiene un entrenador asignado");
+        }
+
         Entrenador entrenador = Entrenador.builder()
                 .equipo(equipo)
                 .fechaNacimiento(request.getFechaNacimiento())
@@ -65,7 +75,7 @@ public class EntrenadorService implements IEntrenadorService {
     @Override
     public void delete(Long id) {
         if (!entrenadorRepository.existsById(id)) {
-            throw new RuntimeException("Libro no encontrado con id: " + id);
+            throw new RuntimeException("Entrenador no encontrado con id: " + id);
         }
         entrenadorRepository.deleteById(id);
 

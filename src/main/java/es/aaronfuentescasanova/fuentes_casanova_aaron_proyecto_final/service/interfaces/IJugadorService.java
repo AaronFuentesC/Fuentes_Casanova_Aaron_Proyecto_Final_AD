@@ -2,6 +2,8 @@ package es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.in
 
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.request.JugadorRequest;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.JugadorResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -11,4 +13,9 @@ public interface IJugadorService {
     JugadorResponse create(JugadorRequest request);
     JugadorResponse update(Long id, JugadorRequest request);
     void delete(Long id);
+    Page<JugadorResponse> findJugadorPageable(Pageable pageable,String nombre);
+    Page<JugadorResponse> findAll(Pageable pageable);
+
+
+
 }

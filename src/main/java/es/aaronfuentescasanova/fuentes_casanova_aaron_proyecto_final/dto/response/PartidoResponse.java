@@ -14,5 +14,7 @@ public class PartidoResponse {
     private LocalDate fecha;
     private int golesLocal;
     private int golesVisitante;
-    private TorneoResponse torneo;
+    private TorneoResponseLite torneo;
+    private EquipoResponseLite equipoLocal;
+    private EquipoResponseLite equipoVisitante;
 }
