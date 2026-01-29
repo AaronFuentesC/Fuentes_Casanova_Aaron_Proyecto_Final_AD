@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class EquipoResponse {
 
+    private Long id;
     private String nombre;
     private String ciudad;
     private String estadio;

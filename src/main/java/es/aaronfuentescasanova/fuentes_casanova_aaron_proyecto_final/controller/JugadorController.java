@@ -74,4 +74,14 @@ public class JugadorController {
         return ResponseEntity.ok(jugadores);
     }
 
+    @GetMapping("/equipos/{equipoId}/jugadores")
+    public ResponseEntity<List<JugadorResponse>> obtenerJugadoresPorEquipo(@PathVariable Long equipoId) {
+        List<JugadorResponse> jugadores = jugadorService.findByEquipoId(equipoId);
+        if (jugadores.isEmpty()) {
+            return ResponseEntity.noContent().build(); // 204 si no hay jugadores
+        }
+        return ResponseEntity.ok(jugadores); // 200 con la lista
+    }
+
+
 }

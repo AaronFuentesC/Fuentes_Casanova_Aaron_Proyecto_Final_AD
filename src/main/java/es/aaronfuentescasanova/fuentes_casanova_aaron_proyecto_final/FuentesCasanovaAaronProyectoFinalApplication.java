@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FuentesCasanovaAaronProyectoFinalApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FuentesCasanovaAaronProyectoFinalApplication.class, args);
+        SpringApplication app = new SpringApplication(FuentesCasanovaAaronProyectoFinalApplication.class);
+        app.setAdditionalProfiles("default");
+        app.run(args);
     }
 
 }

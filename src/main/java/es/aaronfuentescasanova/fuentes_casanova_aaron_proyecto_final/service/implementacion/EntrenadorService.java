@@ -64,6 +64,10 @@ public class EntrenadorService implements IEntrenadorService {
                 .orElseThrow(() -> new RuntimeException("Entrenador no encontrado con id: " + id));
         Equipo equipo = equipoRepository.findById(request.getId_equipo())
                 .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + request.getId_equipo()));
+        if (equipo.getEntrenador() != null && !equipo.getEntrenador().getId().equals(entrenador.getId())) {
+            throw new RuntimeException("El equipo ya tiene un entrenador asignado");
+        }
+
         entrenador.setEquipo(equipo);
         entrenador.setFechaNacimiento(request.getFechaNacimiento());
         entrenador.setNombre(request.getNombre());

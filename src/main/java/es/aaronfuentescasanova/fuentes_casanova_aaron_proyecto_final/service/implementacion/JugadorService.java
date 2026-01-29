@@ -108,5 +108,13 @@ public class JugadorService implements IJugadorService {
                 .map(jugadorMapper::toResponse);
     }
 
+    public List<JugadorResponse> findByEquipoId(Long equipoId) {
+        return jugadorRepository.findByEquipoId(equipoId)
+                .stream()
+                .map(jugadorMapper::toResponse)
+                .toList();
+    }
+
+
 
 }

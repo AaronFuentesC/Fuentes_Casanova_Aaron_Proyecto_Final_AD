@@ -44,6 +44,7 @@ public class EquipoService implements IEquipoService {
                 .ciudad(request.getCiudad())
                 .pais(request.getPais())
                 .estadio(request.getEstadio())
+                .fechaFundacion(request.getFechaFundacion())
                 .build();
         Equipo savedEquipo = equipoRepository.save(equipo);
         return equipoMapper.toResponse(savedEquipo);

@@ -5,8 +5,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface JugadorRepository extends JpaRepository<Jugador,Long> {
     long countByEquipoId(Long equipoId);
+
+    List<Jugador> findByEquipoId(Long equipoId);
 
     boolean existsByEquipoIdAndDorsal(Long equipoId, Integer dorsal);
 
