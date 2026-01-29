@@ -164,6 +164,8 @@ GET    /jugadores/paginados
 
 GET    /jugadores/paginados/{nombre}
 
+GET    /equipos/{equipoId}/jugadores
+
 
 
 ### Entrenadores
