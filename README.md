@@ -3,7 +3,7 @@
 ## API REST – Gestión de Torneos de Fútbol  
 **Asignatura:** Acceso a Datos (2º DAM)  
 **Tecnologías:** Spring Boot 3.x · JPA (Hibernate) · MySQL · Swagger (OpenAPI)  
-**Autor:** Aaron Fuentes Casanova  
+**Autor:** Aarón Fuentes Casanova  
 
 ---
 
@@ -134,7 +134,7 @@ Visualizar modelos y respuestas
 
 ## 🔗 Endpoints Principales
 
-###Equipos
+### Equipos
 
 GET    /equipos
 
@@ -251,6 +251,6 @@ GET    /partidos/paginados
 
 👨‍💻 Autor
 
-Aaron Fuentes Casanova
+Aarón Fuentes Casanova
 2º DAM – Acceso a Datos
 
