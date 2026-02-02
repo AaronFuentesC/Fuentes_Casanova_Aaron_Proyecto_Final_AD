@@ -76,6 +76,35 @@ src/main/java
 
 ---
 
+## 🧠 Reglas de Negocio Implementadas
+
+La aplicación implementa reglas de negocio reales, validadas en la capa de servicio, devolviendo errores controlados en formato JSON cuando se incumplen:
+
+❌ Un equipo no puede tener más de 25 jugadores
+
+❌ Un jugador no puede repetir dorsal dentro del mismo equipo
+
+❌ Un jugador debe tener al menos 16 años
+
+❌ Un equipo debe tener al menos un portero para poder disputar un partido
+
+❌ Un equipo no puede jugar más de un partido en el mismo día
+
+❌ Un equipo no puede jugar contra sí mismo
+
+❌ Un equipo solo puede tener un entrenador asignado
+
+❌ Los equipos que disputan un partido deben estar inscritos en el torneo
+
+❌ No se permiten valores negativos en los goles de un partido
+
+❌ No se permiten campos obligatorios nulos o vacíos (validaciones con @NotNull, @NotBlank, @Past, etc.)
+
+Estas reglas se aplican en la capa Service, asegurando la integridad del dominio y separando correctamente la lógica de negocio del controlador.
+
+---
+
+
 ## ⚙️ Tecnologías Utilizadas
 
 - Java 17
