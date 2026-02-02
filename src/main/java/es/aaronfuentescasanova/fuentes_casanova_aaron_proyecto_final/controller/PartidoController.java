@@ -7,6 +7,7 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.respons
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.implementacion.PartidoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -51,7 +52,7 @@ public class PartidoController {
             description = "Crea un nuevo partido de cero entre 2 equipos diferentes"
     )
     @PostMapping("/partidos")
-    public ResponseEntity<PartidoResponse> crearPartido(@RequestBody PartidoRequest partidoRequest) {
+    public ResponseEntity<PartidoResponse> crearPartido(@Valid @RequestBody PartidoRequest partidoRequest) {
         PartidoResponse nuevoPartido = partidoService.create(partidoRequest);
         return ResponseEntity.ok(nuevoPartido);
     }
@@ -62,7 +63,7 @@ public class PartidoController {
             description = "Actualiza un partido para cambiar los datos"
     )
     @PutMapping("/partidos/{id}")
-    public ResponseEntity<PartidoResponse> actualizarPartido(@RequestBody PartidoRequest partidoRequest, @PathVariable Long id) {
+    public ResponseEntity<PartidoResponse> actualizarPartido(@Valid @RequestBody PartidoRequest partidoRequest, @PathVariable Long id) {
         PartidoResponse partidoActualizado = partidoService.update(id, partidoRequest);
         return ResponseEntity.ok(partidoActualizado);
     }

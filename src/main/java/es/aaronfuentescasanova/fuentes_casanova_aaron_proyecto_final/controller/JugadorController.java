@@ -5,6 +5,7 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.request
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.JugadorResponse;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.implementacion.JugadorService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,13 +36,13 @@ public class JugadorController {
     }
 
     @PostMapping("/jugadores")
-    public ResponseEntity<JugadorResponse> crearJugador(@RequestBody JugadorRequest jugadorRequest) {
+    public ResponseEntity<JugadorResponse> crearJugador(@Valid @RequestBody JugadorRequest jugadorRequest) {
         JugadorResponse nuevoJugador = jugadorService.create(jugadorRequest);
         return ResponseEntity.ok(nuevoJugador);
     }
 
     @PutMapping("/jugadores/{id}")
-    public ResponseEntity<JugadorResponse> actualizarJugador(@PathVariable Long id ,@RequestBody JugadorRequest jugadorRequest) {
+    public ResponseEntity<JugadorResponse> actualizarJugador(@PathVariable Long id ,@Valid @RequestBody JugadorRequest jugadorRequest) {
         JugadorResponse jugadorActualizado = jugadorService.update(id, jugadorRequest);
         return ResponseEntity.ok(jugadorActualizado);
     }

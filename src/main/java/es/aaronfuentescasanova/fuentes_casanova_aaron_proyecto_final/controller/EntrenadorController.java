@@ -37,12 +37,12 @@ public class EntrenadorController {
     }
 
     @PutMapping("entrenadores/{id}")
-    public ResponseEntity<EntrenadorResponse> actualizarEntrenador(@PathVariable Long id, @RequestBody EntrenadorRequest entrenadorDetails) {
+    public ResponseEntity<EntrenadorResponse> actualizarEntrenador(@PathVariable Long id,@Valid @RequestBody EntrenadorRequest entrenadorDetails) {
         EntrenadorResponse entrenadorActualizado = entrenadorService.update(id, entrenadorDetails);
         return ResponseEntity.ok(entrenadorActualizado);
     }
 
-    @DeleteMapping("/proyectos/{id}")
+    @DeleteMapping("/entrenadores/{id}")
     public ResponseEntity<Void> eliminarEntrenador(@PathVariable Long id) {
         entrenadorService.delete(id);
         return ResponseEntity.noContent().build();
