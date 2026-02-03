@@ -27,10 +27,10 @@ public class Equipo {
     private String pais;
     private LocalDate fechaFundacion;
 
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "equipo")
     private List<Jugador> jugadores = new ArrayList<>();
 
-    @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "equipo")
     private Entrenador entrenador;
     // Relación con partido como local
     @OneToMany(mappedBy = "equipoLocal")

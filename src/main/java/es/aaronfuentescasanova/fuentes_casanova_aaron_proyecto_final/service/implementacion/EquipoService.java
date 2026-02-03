@@ -4,6 +4,7 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.request
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.response.EquipoResponse;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.mappers.EquipoMapper;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Equipo;
+import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Jugador;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.EquipoRepository;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.interfaces.IEquipoService;
 import lombok.RequiredArgsConstructor;
@@ -68,7 +69,18 @@ public class EquipoService implements IEquipoService {
         if (!equipoRepository.existsById(id)) {
             throw new RuntimeException("Equipo no encontrado con id: " + id);
         }
+        Equipo equipo = equipoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + id));;
         equipoRepository.deleteById(id);
+
+        for (Jugador j : equipo.getJugadores()) {
+            j.setEquipo(null);
+        }
+
+        if (equipo.getEntrenador() != null) {
+            equipo.getEntrenador().setEquipo(null);
+        }
+
     }
 
 }

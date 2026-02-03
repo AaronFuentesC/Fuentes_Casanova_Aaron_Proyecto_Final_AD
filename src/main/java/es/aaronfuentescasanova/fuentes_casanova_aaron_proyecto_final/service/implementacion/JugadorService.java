@@ -66,6 +66,7 @@ public class JugadorService implements IJugadorService {
                 .nombre(request.getNombre())
                 .posicion(request.getPosicion())
                 .fechaNacimiento(request.getFechaNacimiento())
+                .dorsal(request.getDorsal())
                 .build();
         Jugador savedJugador = jugadorRepository.save(jugador);
         return jugadorMapper.toResponse(savedJugador);
@@ -82,6 +83,7 @@ public class JugadorService implements IJugadorService {
         jugador.setNombre(request.getNombre());
         jugador.setPosicion(request.getPosicion());
         jugador.setFechaNacimiento(request.getFechaNacimiento());
+        jugador.setDorsal(request.getDorsal());
         Jugador updatedJugador = jugadorRepository.save(jugador);
         return jugadorMapper.toResponse(updatedJugador);
     }
