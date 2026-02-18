@@ -16,6 +16,7 @@ import java.util.List;
 @Tag(name = "Entrenadores", description = "Gestión de entrenadores de equipos de fútbol")
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class EntrenadorController {
     private final EntrenadorService entrenadorService;
 

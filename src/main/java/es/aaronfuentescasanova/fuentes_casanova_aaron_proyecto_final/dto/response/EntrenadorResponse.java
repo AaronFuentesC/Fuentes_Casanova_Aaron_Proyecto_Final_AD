@@ -15,8 +15,4 @@ public class EntrenadorResponse {
     private Long id;
     private String nombre;
     private String nacionalidad;
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonIgnore
-    private Equipo equipo;
-
 }

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PartidoResponse {
+    private Long id;
     private LocalDate fecha;
     private int golesLocal;
     private int golesVisitante;

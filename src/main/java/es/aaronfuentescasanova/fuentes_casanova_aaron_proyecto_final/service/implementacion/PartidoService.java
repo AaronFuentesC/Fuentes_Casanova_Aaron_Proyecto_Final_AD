@@ -124,6 +124,7 @@ public class PartidoService implements IPartidoService {
         partidoRepository.deleteById(id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Page<PartidoResponse> findAll(Pageable pageable) {
         return partidoRepository.findAll(pageable)

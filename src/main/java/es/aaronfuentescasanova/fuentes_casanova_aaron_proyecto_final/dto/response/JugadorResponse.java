@@ -17,7 +17,5 @@ public class JugadorResponse {
     private String fechaNacimiento;
     private String posicion;
     private int dorsal;
-    @JsonIgnoreProperties
-    @JsonIgnore
-    private Equipo equipo;
 }
+

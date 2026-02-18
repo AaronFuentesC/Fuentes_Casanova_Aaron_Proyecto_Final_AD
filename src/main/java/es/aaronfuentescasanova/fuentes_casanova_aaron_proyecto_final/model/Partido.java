@@ -25,17 +25,15 @@ public class Partido {
     private int golesLocal;
     private int golesVisitante;
 
-    @ManyToOne
+    @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "torneo_id")
-    @JsonIgnore
-    @JsonIgnoreProperties(ignoreUnknown = true)
     private Torneo torneo;
 
-    @ManyToOne
+    @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "equipo_local_id")
     private Equipo equipoLocal;
 
-    @ManyToOne
+    @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "equipo_visitante_id")
     private Equipo equipoVisitante;
 

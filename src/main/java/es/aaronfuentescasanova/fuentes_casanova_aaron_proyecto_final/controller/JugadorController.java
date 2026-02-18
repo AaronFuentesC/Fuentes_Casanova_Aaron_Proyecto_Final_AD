@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Jugadores", description = "Gestión de jugadores de los equipos de fútbol")
 @RestController
 @RequiredArgsConstructor
-
+@CrossOrigin("*")
 public class JugadorController {
     private final JugadorService jugadorService;
 

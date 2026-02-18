@@ -2,7 +2,9 @@ package es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.config;
 
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.*;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.*;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,9 +22,16 @@ public class DataInitializer {
     private final TorneoRepository torneoRepository;
     private final PartidoRepository partidoRepository;
 
+    @Value("${app.data.init:false}")
+    private boolean initData;
+
     @Bean
     CommandLineRunner initData() {
         return args -> {
+
+            if (!initData) {
+                return;
+            }
 
             // ======================
             // EQUIPOS ESPAÑOLES
@@ -364,6 +373,13 @@ public class DataInitializer {
             entrenadorRepository.saveAll(List.of(luisEnrique, gattuso, sage, hutter));
 
 
+
+            /*
+             ******************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             */
 
 
 
@@ -726,6 +742,13 @@ public class DataInitializer {
 
 
 
+            /*
+             ******************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             */
+
 
 
 
@@ -761,9 +784,6 @@ public class DataInitializer {
                     .equipos(List.of(psg, marseille, lyon, monaco))
                     .build();
 
-            torneoRepository.save(ligue1);
-
-
 
             // ======================
             // TORNEOS INTERNACIONALES
@@ -788,7 +808,17 @@ public class DataInitializer {
                             monaco
                     ))
                     .build();
-            torneoRepository.saveAll(List.of(liga,bundesliga,premier,serieA, champions));
+            torneoRepository.saveAll(List.of(liga,bundesliga,premier,serieA,ligue1, champions));
+
+
+            /*
+             ******************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             * ****************************************************************************************
+             */
+
+
 
             // ======================
             // PARTIDOS

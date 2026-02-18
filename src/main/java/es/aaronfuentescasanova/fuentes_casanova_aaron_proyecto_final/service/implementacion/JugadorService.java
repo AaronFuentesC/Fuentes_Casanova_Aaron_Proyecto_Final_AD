@@ -104,12 +104,14 @@ public class JugadorService implements IJugadorService {
                 .map(jugadorMapper::toResponse);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Page<JugadorResponse> findAll(Pageable pageable) {
         return jugadorRepository.findAll(pageable)
                 .map(jugadorMapper::toResponse);
     }
 
+    @Transactional(readOnly = true)
     public List<JugadorResponse> findByEquipoId(Long equipoId) {
         return jugadorRepository.findByEquipoId(equipoId)
                 .stream()

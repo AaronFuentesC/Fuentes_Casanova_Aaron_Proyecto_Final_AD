@@ -22,14 +22,14 @@ public class Torneo {
     private String nombre;
     private String temporada;
 
-    @OneToMany(mappedBy = "torneo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "torneo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Partido> partidos = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(
             name = "torneo_equipo",
             joinColumns = @JoinColumn(name = "torneo_id"),
             inverseJoinColumns = @JoinColumn(name = "equipo_id")
     )
-    private List<Equipo> equipos;
+    private List<Equipo> equipos = new ArrayList<>();
 }

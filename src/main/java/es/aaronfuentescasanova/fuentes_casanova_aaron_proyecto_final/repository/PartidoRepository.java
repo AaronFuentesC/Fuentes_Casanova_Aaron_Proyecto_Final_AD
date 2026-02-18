@@ -1,11 +1,13 @@
 package es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository;
 
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Partido;
+import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Torneo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface PartidoRepository extends JpaRepository<Partido,Long> {
 
@@ -19,4 +21,5 @@ public interface PartidoRepository extends JpaRepository<Partido,Long> {
             @Param("equipoId") Long equipoId,
             @Param("fecha") LocalDate fecha
     );
+    List<Partido> findByTorneo(Torneo torneo);
 }

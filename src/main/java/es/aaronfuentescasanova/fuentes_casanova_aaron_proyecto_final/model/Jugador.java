@@ -27,9 +27,7 @@ public class Jugador {
     private int dorsal;
 
 
-    @ManyToOne
+    @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "equipo_id")
-    @JsonIgnore
-    @JsonIgnoreProperties(ignoreUnknown = true)
     private Equipo equipo;
 }

@@ -27,17 +27,17 @@ public class Equipo {
     private String pais;
     private LocalDate fechaFundacion;
 
-    @OneToMany(mappedBy = "equipo")
+    @OneToMany(mappedBy = "equipo", fetch = FetchType.LAZY)
     private List<Jugador> jugadores = new ArrayList<>();
 
     @OneToOne(mappedBy = "equipo")
     private Entrenador entrenador;
     // Relación con partido como local
-    @OneToMany(mappedBy = "equipoLocal")
+    @OneToMany(mappedBy = "equipoLocal", fetch =  FetchType.LAZY)
     private List<Partido> partidosLocal;
 
     // Relación con partido como visitante
-    @OneToMany(mappedBy = "equipoVisitante")
+    @OneToMany(mappedBy = "equipoVisitante", fetch = FetchType.LAZY)
     private List<Partido> partidosVisitante;
 
     // Relación con torneo

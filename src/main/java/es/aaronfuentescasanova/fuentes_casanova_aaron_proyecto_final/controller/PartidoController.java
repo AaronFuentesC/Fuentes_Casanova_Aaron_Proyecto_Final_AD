@@ -21,6 +21,7 @@ import java.util.List;
 @Tag(name = "Partidos", description = "Gestión de partidos de fútbol jugados entre 2 equipos")
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class PartidoController {
 
     private final PartidoService partidoService;

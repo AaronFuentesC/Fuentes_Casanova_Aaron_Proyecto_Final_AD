@@ -5,7 +5,9 @@ import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.dto.respons
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.mappers.EquipoMapper;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Equipo;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Jugador;
+import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.model.Torneo;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.EquipoRepository;
+import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.repository.TorneoRepository;
 import es.aaronfuentescasanova.fuentes_casanova_aaron_proyecto_final.service.interfaces.IEquipoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 public class EquipoService implements IEquipoService {
     private final EquipoRepository equipoRepository;
     private final EquipoMapper equipoMapper;
+
 
     @Transactional(readOnly = true)
     @Override
@@ -66,12 +69,9 @@ public class EquipoService implements IEquipoService {
 
     @Override
     public void delete(Long id) {
-        if (!equipoRepository.existsById(id)) {
-            throw new RuntimeException("Equipo no encontrado con id: " + id);
-        }
+
         Equipo equipo = equipoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + id));;
-        equipoRepository.deleteById(id);
+                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con id: " + id));
 
         for (Jugador j : equipo.getJugadores()) {
             j.setEquipo(null);
@@ -81,6 +81,20 @@ public class EquipoService implements IEquipoService {
             equipo.getEntrenador().setEquipo(null);
         }
 
+        for (Torneo torneo : equipo.getTorneos()) {
+            torneo.getEquipos().remove(equipo);
+        }
+
+        equipo.getTorneos().clear();
+
+        equipoRepository.save(equipo);
+
+        equipoRepository.delete(equipo);
     }
+
+
+
+
+
 
 }
