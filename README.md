@@ -1,6 +1,6 @@
 # ⚽ Fuentes_Casanova_Aaron_Proyecto_Final_AD
 
-## API REST – Gestión de Torneos de Fútbol!  
+## API REST – Gestión de Torneos de Fútbol  
 **Asignatura:** Acceso a Datos (2º DAM)  
 **Tecnologías:** Spring Boot 3.x · JPA (Hibernate) · MySQL · Swagger (OpenAPI)  
 **Autor:** Aarón Fuentes Casanova  
